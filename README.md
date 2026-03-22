@@ -180,7 +180,7 @@ This project was developed as part of an **AI Capstone Course**, demonstrating r
 
 ## 📑 Project Report
 
-[Download Report](report/CV_LLM_Project_Report.pdf)
+[Download Report](report/CV_LLM_Project_Report_Updated.pdf)
 
 ---
 
