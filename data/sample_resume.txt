@@ -1,0 +1,20 @@
+Mini Agrawal
+Email: mini@example.com
+Phone: 9876543210
+
+Education:
+B.Tech in Computer Science from XYZ University (2020-2024)
+
+Experience:
+Software Engineer at ABC Corp (2024-Present)
+Worked on Kafka and Spring Boot applications.
+
+Skills:
+Java, Kafka, Spring Boot, SQL
+
+Projects:
+- Resume Parser using Python
+- Chatbot using LLM
+
+Achievements:
+- Top 5 in coding competition

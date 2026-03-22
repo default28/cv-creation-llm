@@ -1,0 +1,16 @@
+Software Engineer - Backend
+
+Company: ABC Tech
+
+Responsibilities:
+- Build scalable backend systems
+- Work with microservices architecture
+- Collaborate with cross-functional teams
+
+Requirements:
+- 2+ years experience in backend development
+- Strong knowledge of Java, Spring Boot
+- Experience with Kafka and REST APIs
+
+Skills:
+Java, Spring Boot, Kafka, Microservices, SQL, AWS
