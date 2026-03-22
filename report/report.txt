@@ -1,0 +1,266 @@
+# **CV Creation using LLMs (Capstone Project Report)**
+
+## **1. Introduction**
+
+In today’s competitive job market, crafting a tailored and ATS-friendly resume is crucial. This project, **“CV Creation using LLMs”**, demonstrates how modern Large Language Models (LLMs) can automate resume generation, tailoring, and optimization based on job descriptions.
+
+The system leverages open-source LLMs to:
+
+* Extract structured data from resumes
+* Parse job descriptions
+* Generate personalized resumes
+* Provide ATS feedback and iterative improvements
+
+---
+
+## **2. Objective**
+
+The primary objective of this project is to design and develop an AI-powered system that:
+
+* Converts resumes (PDF/DOCX) into structured data
+* Extracts job requirements from job descriptions
+* Tailors resumes based on job roles
+* Generates ATS-friendly CVs
+* Enables iterative refinement with user feedback
+
+---
+
+## **3. System Architecture**
+
+```
+User Input (Resume + Job Description)
+        ↓
+Text Extraction (PDF/DOCX)
+        ↓
+LLM Processing
+   - Resume Parsing
+   - Job Parsing
+        ↓
+Structured JSON Data
+        ↓
+Resume Tailoring (LLM)
+        ↓
+ATS Feedback + Iteration
+        ↓
+Final Resume (DOCX)
+```
+
+---
+
+## **4. Technologies Used**
+
+| Component            | Technology                      |
+| -------------------- | ------------------------------- |
+| Programming Language | Python                          |
+| LLM Runtime          | Ollama                          |
+| Model                | Gemma (lightweight open-source) |
+| Framework            | Streamlit                       |
+| Parsing              | pdfplumber, python-docx         |
+| Document Generation  | python-docx                     |
+| API Calls            | requests                        |
+
+---
+
+## **5. Implementation Details**
+
+### **5.1 Resume Data Extraction**
+
+* Input formats: PDF, DOCX, TXT
+* Used `pdfplumber` and `python-docx` to extract text
+* LLM converts raw text into structured JSON:
+
+```json
+{
+  "name": "",
+  "contact": "",
+  "skills": [],
+  "experience": [],
+  "education": ""
+}
+```
+
+---
+
+### **5.2 Job Description Parsing**
+
+* Accepts:
+
+  * Copy-paste input
+  * File upload (PDF/DOCX)
+* Extracts:
+
+  * Requirements
+  * Responsibilities
+  * Keywords
+
+Output stored as structured JSON for downstream use.
+
+---
+
+### **5.3 Resume Tailoring and Generation**
+
+This is the core component.
+
+#### Process:
+
+1. LLM receives:
+
+   * Resume JSON
+   * Job Description JSON
+2. It rewrites and aligns content:
+
+   * Adds relevant keywords
+   * Enhances bullet points
+   * Improves clarity and impact
+
+#### Key Features:
+
+* ATS-friendly formatting
+* Keyword injection
+* Personalized summary
+
+#### Output:
+
+* Structured JSON → converted into DOCX
+
+---
+
+### **5.4 Document Generation**
+
+* Resume generated using `python-docx`
+* Structured formatting:
+
+  * Headings
+  * Bullet points
+  * Sections
+
+Output:
+
+* `tailored_resume.docx`
+
+---
+
+### **5.5 User Review and Iterative Revision**
+
+The system allows users to:
+
+* Edit generated resume (via Streamlit UI)
+* Submit updated version
+
+LLM then:
+
+* Refines content
+* Adds missing keywords
+* Improves phrasing
+
+---
+
+### **5.6 ATS Feedback System**
+
+The system evaluates resume quality using LLM:
+
+#### Output:
+
+```json
+{
+  "match_score": "85%",
+  "missing_keywords": ["Docker", "Kubernetes"],
+  "improvement_suggestions": ["Add deployment experience"]
+}
+```
+
+#### Features:
+
+* Keyword matching
+* Score estimation
+* Actionable suggestions
+
+---
+
+## **6. Challenges and Solutions**
+
+| Challenge                   | Solution                         |
+| --------------------------- | -------------------------------- |
+| LLM output not in JSON      | Added fallback parser            |
+| Markdown formatting issues  | Implemented cleaning layer       |
+| Inconsistent output         | Used structured JSON pipeline    |
+| PDF extraction errors       | Added text validation            |
+| ATS feedback parsing issues | Added fallback response handling |
+
+---
+
+## **7. Key Innovations**
+
+* Hybrid approach: LLM + rule-based parsing
+* Structured JSON pipeline for reliability
+* Iterative refinement loop
+* ATS scoring mechanism
+* Real-time feedback via UI
+
+---
+
+## **8. Results**
+
+The system successfully:
+
+* Generates tailored resumes
+* Improves keyword alignment
+* Provides actionable feedback
+* Supports multiple input formats
+* Enables iterative improvements
+
+---
+
+## **9. Limitations**
+
+* Small LLM (Gemma) may not always follow strict formatting
+* ATS scoring is approximate (LLM-based)
+* No real-time deployment (local setup)
+
+---
+
+## **10. Future Enhancements**
+
+* Use larger models for better accuracy
+* Add resume templates (professional designs)
+* Deploy as web application
+* Integrate LinkedIn profile parsing
+* Add real ATS scoring engine
+
+---
+
+## **11. Conclusion**
+
+This project demonstrates the practical application of LLMs in automating resume creation and optimization. By combining natural language processing with structured pipelines, the system delivers a robust and scalable solution for job seekers.
+
+The project fulfills all requirements of the capstone, including:
+
+* Data extraction
+* Job parsing
+* Resume tailoring
+* Iterative refinement
+* ATS feedback
+
+---
+
+## **12. References**
+
+* Open-source LLM documentation (Gemma, Ollama)
+* Python libraries: pdfplumber, python-docx
+* Research on ATS optimization and resume writing
+
+---
+
+## **13. Appendix**
+
+### Sample Input:
+
+* Resume (PDF/DOCX)
+* Job Description
+
+### Sample Output:
+
+* Tailored Resume (DOCX)
+* ATS Feedback JSON
+
+---
