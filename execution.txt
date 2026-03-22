@@ -1,0 +1,150 @@
+CV Creation using LLMs (Capstone Project)
+Execution Instructions
+
+---
+
+1. Prerequisites
+
+Ensure the following are installed:
+
+* Python 3.10+
+* pip (Python package manager)
+* Ollama (for running LLM locally)
+
+---
+
+2. Install Dependencies
+
+Navigate to project folder:
+
+Create virtual environment (recommended):
+
+python3 -m venv venv
+source venv/bin/activate   (Mac/Linux)
+venv\Scripts\activate      (Windows)
+
+Install required libraries:
+
+python3 -m venv venv
+source venv/bin/activate
+pip3 install reportlab
+pip install python-docx
+pip install pdfplumber
+pip install pydantic
+pip install docx2pdf
+pip install streamlit
+
+
+---
+
+3. Setup LLM (Ollama)
+
+Install Ollama from:
+https://ollama.com
+
+Pull required model:
+
+ollama pull llama3
+
+Run model (optional check):
+
+ollama run llama3
+
+Ensure Ollama server is running at:
+
+http://localhost:11434
+
+---
+
+4. Run Application
+
+Option 1: CLI Version
+
+python3 main.py
+
+Follow prompts to:
+
+* Upload resume file (PDF/DOCX)
+* Provide job description (file or paste)
+* Generate tailored resume
+
+---
+
+Option 2: Web UI (Recommended)
+
+streamlit run app.py
+
+Open browser:
+http://localhost:8501
+
+Features available:
+
+* Upload resume
+* Upload job description
+* Generate tailored CV
+* Edit resume
+* Get ATS feedback
+* Download DOCX
+
+---
+
+5. Input Formats Supported
+
+* Resume: PDF, DOCX, TXT
+* Job Description: PDF, DOCX, TXT
+
+
+---
+
+6. Output
+
+Generated files are saved in:
+
+output/
+
+Example:
+
+* tailored_resume.docx
+
+---
+
+7. Pipeline Flow
+
+8. Resume Extraction → Convert to structured JSON
+
+9. Job Parsing → Extract requirements & keywords
+
+10. Resume Tailoring → LLM generates optimized CV
+
+11. ATS Feedback → Match score + suggestions
+
+12. Iterative Refinement → User edits and improves
+
+13. DOCX Generation → Final formatted resume
+
+---
+
+8. Notes
+
+* LLM output may not always be perfect JSON → fallback parser is used
+* Ensure Ollama is running before execution
+* Internet is NOT required after model download
+
+---
+
+9. Troubleshooting
+
+Issue: JSON parsing failed
+Solution: System automatically uses fallback parser
+
+Issue: Ollama connection error
+Solution: Run:
+ollama serve
+
+Issue: Model not found
+Solution:
+ollama pull llama3
+
+---
+
+End of Execution Instructions
