@@ -1,6 +1,25 @@
 from docx import Document
 from docx2pdf import convert
 import subprocess
+import re
+
+def remove_job_description(text):
+    if not isinstance(text, str):
+        return text
+
+    lines = text.split("\n")
+    cleaned_lines = []
+
+    for line in lines:
+        lower = line.strip().lower()
+
+        # 🔥 ADD CONDITION HERE
+        if lower.startswith("job description") or lower.startswith("job requirements"):
+            break   # stop removing everything after this point
+
+        cleaned_lines.append(line)
+
+    return "\n".join(cleaned_lines).strip()
 
 def create_docx_from_json(data, output_file="tailored_resume.docx"):
     doc = Document()
