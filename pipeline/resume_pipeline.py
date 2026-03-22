@@ -2,6 +2,7 @@
 
 from llm.gemma_client import query_gemma
 from llm.prompts import extraction_prompt
+from utils.parser import parse_text_to_json
 import json
 
 def extract_resume_data(text):
@@ -12,5 +13,5 @@ def extract_resume_data(text):
         return json.loads(response)
     except:
         print("⚠️ JSON parsing failed. Raw output:")
-        print(response)
-        return response
+         # 🔥 FIX: ALWAYS RETURN DICT
+        return parse_text_to_json(response)
