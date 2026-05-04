@@ -86,6 +86,7 @@ It is designed as a **capstone project** to showcase:
 
 ## 🏗️ Architecture
 
+```
 Job Description ────────┐
                         ↓
                 ┌────────────────────┐
@@ -114,6 +115,8 @@ Resume Input ────────────┐
                 ┌────────────────────┐
                 │ Final Resume       │
                 └────────────────────┘
+
+```
 
 ---
 
