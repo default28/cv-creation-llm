@@ -86,21 +86,34 @@ It is designed as a **capstone project** to showcase:
 
 ## 🏗️ Architecture
 
-```
-Resume + Job Description
-        ↓
-Text Extraction
-        ↓
-LLM Processing
-        ↓
-Structured JSON
-        ↓
-Resume Tailoring
-        ↓
-ATS Feedback
-        ↓
-Final Resume (DOCX)
-```
+Job Description ────────┐
+                        ↓
+                ┌────────────────────┐
+                │ JD Analysis (LLM)  │
+                └────────┬───────────┘
+                         ↓
+Resume Input ────────────┐
+                         ↓
+                ┌────────────────────┐
+                │ Resume Parsing     │
+                └────────┬───────────┘
+                         ↓
+                ┌────────────────────┐
+                │ Resume Tailoring   │
+                │ (LLM + Prompting)  │
+                └────────┬───────────┘
+                         ↓
+                ┌────────────────────┐
+                │ ATS Optimization   │
+                └────────┬───────────┘
+                         ↓
+                ┌────────────────────┐
+                │ Iterative Refining │
+                └────────┬───────────┘
+                         ↓
+                ┌────────────────────┐
+                │ Final Resume       │
+                └────────────────────┘
 
 ---
 
